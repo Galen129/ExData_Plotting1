@@ -21,9 +21,8 @@ PwrData$Date = as.Date(PwrData$Date, format="%d/%m/%Y")
 index = PwrData$Date==as.Date("2007-02-01") | PwrData$Date==as.Date("2007-02-02")
 
 png("plot3.png", width=480, height=480)
-plot(PwrData$Time[index],PwrData$Sub_metering_1[index], type="n", 
+plot(PwrData$Time[index],PwrData$Sub_metering_1[index], type="l", 
      xlab="", ylab = "Energy sub metering")
-lines(PwrData$Time[index],PwrData$Sub_metering_1[index], col="black")
 lines(PwrData$Time[index],PwrData$Sub_metering_2[index], col="red")
 lines(PwrData$Time[index],PwrData$Sub_metering_3[index], col="blue")
 legend("topright", legend=colnames(PwrData)[7:9], col=cbind("black", "red", "blue"), lty=1)

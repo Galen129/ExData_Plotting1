@@ -24,26 +24,22 @@ png("plot4.png", width=480, height=480)
 par(mfrow=c(2,2))
 
 # top left plot
-plot(PwrData$Time[index],PwrData$Global_active_power[index], type="n", 
+plot(PwrData$Time[index],PwrData$Global_active_power[index], type="l", 
      xlab="", ylab = "Global Active Power")
-lines(PwrData$Time[index],PwrData$Global_active_power[index])
 
 # top right plot
-plot(PwrData$Time[index],PwrData$Voltage[index], type="n", xlab="datetime", ylab="Voltage")
-lines(PwrData$Time[index],PwrData$Voltage[index])
+plot(PwrData$Time[index],PwrData$Voltage[index], type="l", xlab="datetime", ylab="Voltage")
 
 # bottom left plot
-plot(PwrData$Time[index],PwrData$Sub_metering_1[index], type="n", 
+plot(PwrData$Time[index],PwrData$Sub_metering_1[index], type="l", 
      xlab="", ylab = "Energy sub metering")
-lines(PwrData$Time[index],PwrData$Sub_metering_1[index], col="black")
 lines(PwrData$Time[index],PwrData$Sub_metering_2[index], col="red")
 lines(PwrData$Time[index],PwrData$Sub_metering_3[index], col="blue")
 legend("topright", legend=colnames(PwrData)[7:9], col=cbind("black", "red", "blue"), lty=1, bty="n")
 
 # bottom right plot
-plot(PwrData$Time[index],PwrData$Global_reactive_power[index], type="n",
+plot(PwrData$Time[index],PwrData$Global_reactive_power[index], type="l",
      xlab="datetime", ylab="Global_reactive_power")
-lines(PwrData$Time[index],PwrData$Global_reactive_power[index])
 
 dev.off()
 
